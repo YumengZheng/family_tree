@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 
 const Node = function(info) {
@@ -8,7 +9,8 @@ const Node = function(info) {
   }
 }
 
-//I spent about 1.5 hours implementing the first version. It does a tree search very time adding or deleteing a family memember which cost runtime o(n)
+//I spent about 1.5 hours implementing the first version. It does a tree search very time adding or deleteing a family memember which cost runtime O(n)
+//uncomment component below and the first line of the file to see.
 
 // const App = function() {
 //   const [tree, setTree] = useState(
@@ -121,12 +123,13 @@ class App extends React.Component {
     return (
       <div className="person">
         <div className="info">
-          {photo && <img src={photo} />}
+          {photo && <img src={photo} alt={'a smurf'} />}
           {Object.keys(self).length > 0 &&
             Object.keys(self).map(key => {
               if (key !== 'photo' && key !== 'children') {
                 return <p>{`${key}: ${self[key]}`}</p>
               }
+              return null
             })
           }
           <button onClick={() => this._handleAddMemember(self)}>Add</button>
